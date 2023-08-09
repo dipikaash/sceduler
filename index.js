@@ -34,11 +34,22 @@ for (let patient of patientList) {
     var patientOpt = document.createElement("option");        
     patientOpt.text = patient.name;
     patientOpt.value = patient.id;
+    patientOpt.id = patient.doctorID;
     document.getElementById('patient').options.add(patientOpt);
 }
 for(let doctor of data.Doctors){
-    var docOpts =document.createElement('option');
+    var docOpts = document.createElement('option');
     docOpts.text = doctor.name;
     docOpts.value = doctor.id;
     document.getElementById('doc').options.add(docOpts);
 }
+document.getElementById('patient').onchange = function (){
+    const docId = this.options[this.selectedIndex].id;
+    const doc = document.getElementById('doc');
+    for(let i=0; i<doc.options.length;i++){
+        if(doc.options[i].value === docId)
+         doc.options[i].defaultSelected = true; 
+    }
+
+}
+document.getElementById('patient').onchange();
