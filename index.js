@@ -30,6 +30,7 @@ document.querySelector('form').addEventListener('submit', (e) => {
 
 const patientList = data.patientList;
 console.log(patientList);
+//dynamically added patients
 for (let patient of patientList) {
     var patientOpt = document.createElement("option");        
     patientOpt.text = patient.name;
@@ -37,18 +38,20 @@ for (let patient of patientList) {
     patientOpt.id = patient.doctorID;
     document.getElementById('patient').options.add(patientOpt);
 }
+//dynamically added doctor list
 for(let doctor of data.Doctors){
     var docOpts = document.createElement('option');
     docOpts.text = doctor.name;
     docOpts.value = doctor.id;
     document.getElementById('doc').options.add(docOpts);
 }
+//dynamically mapping doctor with patient
 document.getElementById('patient').onchange = function (){
-    const docId = this.options[this.selectedIndex].id;
-    const doc = document.getElementById('doc');
+    let docId = this.options[this.selectedIndex].id;
+    let doc = document.getElementById('doc');
     for(let i=0; i<doc.options.length;i++){
         if(doc.options[i].value === docId)
-         doc.options[i].defaultSelected = true; 
+         doc.options[i].selected = true; 
     }
 
 }
