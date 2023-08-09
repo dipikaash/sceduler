@@ -1,29 +1,44 @@
 import data from './data.json' assert { type: 'json' };
 console.log(data.Doctors);
-var firstJsonData = new FormData(document.querySelector('form'))
- console.log(formDat);
+var firstFormData = new FormData(document.querySelector('form'))
+ console.log(firstFormData);
 document.querySelector('form').addEventListener('submit', (e) => {
     const formData = new FormData(e.target);
-  console.log(formData.get('foo'));
-  console.log(formData.get('bar'));
+//   console.log(formData.get('patient'));
+//   console.log(formData.get('bar'));
   console.log(firstJsonData);
 });
 
-console.log({ batchTrack });
+// console.log({ batchTrack });
 // const getPost = async () => {
 //   const response = await fetch("https://jsonplaceholder.typicode.com/users");
 //   const data = await response.json();
 //   return data;
 // };
-const batchTrack = document.getElementById("this");
-const displayOption = async () => {
-  const options = data.Doctors;
-  for (option of options) {
-    const newOption = document.createElement("option");
-    newOption.value = option.id;
-    newOption.text = option.id;
-    batchTrack.add(newOption);
-  }
-};
+// const batchTrack = document.getElementById("patient");
+// const displayOption = async () => {
+ 
+//   for (option of options) {
+//     const newOption = document.createElement("option");
+//     newOption.value = option.id;
+//     newOption.text = option.name;
+//     batchTrack.add(newOption);
+//   }
+// };
 
-displayOption();
+// displayOption();
+
+const patientList = data.patientList;
+console.log(patientList);
+for (let patient of patientList) {
+    var patientOpt = document.createElement("option");        
+    patientOpt.text = patient.name;
+    patientOpt.value = patient.id;
+    document.getElementById('patient').options.add(patientOpt);
+}
+for(let doctor of data.Doctors){
+    var docOpts =document.createElement('option');
+    docOpts.text = doctor.name;
+    docOpts.value = doctor.id;
+    document.getElementById('doc').options.add(docOpts);
+}

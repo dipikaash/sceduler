@@ -10,22 +10,29 @@
     <h1>Appointment Scheduler</h1>
     <div>
         <form>
-            <!-- <label for="patient"></label>
-            <select></select> -->
-            <div>            
-                <label for="foo">Foo</label>
-                <input type="radio" name="foo" value="1" checked="checked" />
-                <input type="radio" name="foo" value="0" />
+            <div class="apt">
+                <lable for="patient">Patient</lable><select id="patient" name="patient">
+                    <!-- <option value="hi" selected="selected">Hi</option>
+                    <option value="ho">Ho</option> -->
+                </select>
             </div>
-            <div>
-                <label for="bar">Bar</label><input name="bar" value="xxx" />
+            <div class="apt">
+                <lable for="doc">Doc</lable><select id="doc" name="doc">
+                    <!-- <option value="hi" selected="selected">Hi</option>
+                    <option value="ho">Ho</option> -->
+                </select>
             </div>
-            <div>
-                <lable for="this">This</lable><select id="this" name="this">
-                    <option value="hi" selected="selected">Hi</option>
-                    <option value="ho">Ho</option></select>
+            <div class="apt">
+                <lable for="date">Date</lable><select id="date" name="date">
+                    <!-- <option value="hi" selected="selected">Hi</option>
+                    <option value="ho">Ho</option> -->
+                </select>
             </div>
-                <button type="submit">Submit</button>
+            <div class="apt">
+                <lable for="time">Choose time</lable>
+                <input type="number"/>
+            </div>
+                <button class="apt" type="submit">Submit</button>
         </form>
     </div>
     <script type="module" src="./index.js"></script>

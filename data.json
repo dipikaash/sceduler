@@ -8,19 +8,46 @@
     ],
     "Doctors": [
         {
-            "id": 111, "name": "Vivek", "availability":{
-                "startTime": "", "endTime": ""
+            "id": 111, "name": "Vivek", "availability":[{
+                "date": "2022-06-03" ,"startTime": "05:00", "endTime": "21:00"
+            },
+            {
+                "date": "2022-06-04" ,"startTime": "10:00", "endTime": "18:00"
+            },
+            {
+                "date": "2022-06-05" ,"startTime": "12:30", "endTime": "22:00"
+            },
+            {
+                "date": "2022-06-06" ,"startTime": "03:00", "endTime": "11:00"
             }
+        ]
         },
         {
-            "id": 123, "name": "Vinayak", "availability":{
-                "startTime": "", "endTime": ""
+            "id": 123, "name": "Vinayak", "availability":[{
+                "date": "2022-05-06", "startTime": "05:00", "endTime": "18:00"
+            },
+            {
+                "date": "2022-05-07" ,"startTime": "12:30", "endTime": "22:00"
+            },
+            {
+                "date": "2022-05-08" ,"startTime": "03:00", "endTime": "11:00"
             }
+        ]
         },
         {
-            "id": 132, "name": "Roy", "availability":{
-                "startTime": "", "endTime": ""
+            "id": 132, "name": "Roy", "availability":[{
+                "date": "2022-07-02" ,"startTime": "10:00", "endTime": "18:00"
+            },
+            {
+                "date": "2022-07-03" ,"startTime": "12:30", "endTime": "22:00"
+            },
+            {
+                "date": "2022-07-04" ,"startTime": "03:00", "endTime": "11:00"
+            },
+            {
+                "date": "2022-07-05" ,"startTime": "05:00", "endTime": "12:30"
             }
+        ]
         }
     ]
 }
