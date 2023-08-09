@@ -1,0 +1,26 @@
+{
+    "patientList": [
+       {"name": "Radha", "id": 1, "doctorID": 111},
+       {"name": "Amit", "id": 2, "doctorID": 123},
+       {"name": "Arun", "id": 3, "doctorID": 132},
+       {"name": "Shobha", "id": 4, "doctorID": 143},
+       {"name": "Jai", "id": 5, "doctorID": 141}
+    ],
+    "Doctors": [
+        {
+            "id": 111, "name": "Vivek", "availability":{
+                "startTime": "", "endTime": ""
+            }
+        },
+        {
+            "id": 123, "name": "Vinayak", "availability":{
+                "startTime": "", "endTime": ""
+            }
+        },
+        {
+            "id": 132, "name": "Roy", "availability":{
+                "startTime": "", "endTime": ""
+            }
+        }
+    ]
+}
