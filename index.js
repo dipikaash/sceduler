@@ -9,7 +9,7 @@ document.querySelector('form').addEventListener('submit', (e) => {
 });
 
 //dynamically added patients
-for (let patient of patientList) {
+for (let patient of data.patientList) {
     var patientOpt = document.createElement("option");        
     patientOpt.text = patient.name;
     patientOpt.value = patient.name;
@@ -35,4 +35,3 @@ document.getElementById('patient').onchange = function (){
 
 }
 document.getElementById('patient').onchange();
-
