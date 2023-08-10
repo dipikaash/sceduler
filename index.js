@@ -1,40 +1,18 @@
 import data from './data.json' assert { type: 'json' };
 console.log(data.Doctors);
-var firstFormData = new FormData(document.querySelector('form'))
- console.log(firstFormData);
+
+// submit event handler
 document.querySelector('form').addEventListener('submit', (e) => {
-    const formData = new FormData(e.target);
-//   console.log(formData.get('patient'));
-//   console.log(formData.get('bar'));
-  console.log(firstJsonData);
+    e.preventDefault();
+     const data = Object.fromEntries(new FormData(e.target).entries());
+  console.log(data);
 });
 
-// console.log({ batchTrack });
-// const getPost = async () => {
-//   const response = await fetch("https://jsonplaceholder.typicode.com/users");
-//   const data = await response.json();
-//   return data;
-// };
-// const batchTrack = document.getElementById("patient");
-// const displayOption = async () => {
- 
-//   for (option of options) {
-//     const newOption = document.createElement("option");
-//     newOption.value = option.id;
-//     newOption.text = option.name;
-//     batchTrack.add(newOption);
-//   }
-// };
-
-// displayOption();
-
-const patientList = data.patientList;
-console.log(patientList);
 //dynamically added patients
 for (let patient of patientList) {
     var patientOpt = document.createElement("option");        
     patientOpt.text = patient.name;
-    patientOpt.value = patient.id;
+    patientOpt.value = patient.name;
     patientOpt.id = patient.doctorID;
     document.getElementById('patient').options.add(patientOpt);
 }
@@ -42,7 +20,8 @@ for (let patient of patientList) {
 for(let doctor of data.Doctors){
     var docOpts = document.createElement('option');
     docOpts.text = doctor.name;
-    docOpts.value = doctor.id;
+    docOpts.value = doctor.name;
+    docOpts.id = doctor.id;
     document.getElementById('doc').options.add(docOpts);
 }
 //dynamically mapping doctor with patient
@@ -50,9 +29,10 @@ document.getElementById('patient').onchange = function (){
     let docId = this.options[this.selectedIndex].id;
     let doc = document.getElementById('doc');
     for(let i=0; i<doc.options.length;i++){
-        if(doc.options[i].value === docId)
+        if(doc.options[i].id === docId)
          doc.options[i].selected = true; 
     }
 
 }
 document.getElementById('patient').onchange();
+
