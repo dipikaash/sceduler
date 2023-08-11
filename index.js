@@ -1,13 +1,35 @@
 import data from './data.json' assert { type: 'json' };
-console.log(data.Doctors);
 
 // submit event handler
 document.querySelector('form').addEventListener('submit', (e) => {
     e.preventDefault();
      const formData = Object.fromEntries(new FormData(e.target).entries());
-  console.log(formData);
   //console.log(formData.aptmtTime.value <  data.Doctors[0].availability[0].startTime)
-  console.log("booked");
+ var aptmtBooked = false;
+  for(let el of data.Doctors){
+    if(el.name === formData.doc){
+     //   console.log(el.availability.date,"docName");
+        for(let item of el.availability.date){
+         //   console.log(item,"each date",formData.date);
+            if(item === formData.date){
+              //  console.log(item,"matched date");
+                for(let t of el.availability.time){
+                    if(t===formData.aptmtTime){
+                        console.log(t,"matched time");
+                        alert("appointment booked");
+                        aptmtBooked = true;
+                        break;
+                    }   
+                }
+            break;
+            }
+        }
+    break;
+     }
+    
+  }
+if(!aptmtBooked)
+ alert("Choose another date and time");
 });
 //dynamically added patients
 for (let patient of data.patientList) {
@@ -36,8 +58,8 @@ document.getElementById('patient').onchange = function (){
 }
 document.getElementById('patient').onchange();
 
-document.getElementById('aptmtTime').min = data.Doctors[0].availability[0].startTime;
-document.getElementById('aptmtTime').max = data.Doctors[0].availability[0].endTime;
+// document.getElementById('aptmtTime').min = data.Doctors[0].availability[0].startTime;
+// document.getElementById('aptmtTime').max = data.Doctors[0].availability[0].endTime;
 
 // document.getElementById('doc').onchange = function (){
 // const selDocId = this.id;
@@ -50,4 +72,12 @@ document.getElementById('aptmtTime').max = data.Doctors[0].availability[0].endTi
 //  }
 // }
 // document.getElementById('doc').onchange();
-
+// document.getElementById('doc').onchange = function (){
+// let doc = this.value;
+// for(let doctor of data.Doctors){
+//     if(doctor.name === doc.value){
+//         localStorage.setItem('timeSlot', JSON.stringify(doctor.availability))
+//     }
+// }
+// }
+// document.getElementById('doc').onchange();
